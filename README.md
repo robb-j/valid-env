@@ -1,29 +1,21 @@
 # Valid Environment
 
-A project setup with [robb-j/node-base](https://github.com/robb-j/node-base/) template which creates a node app, with the common things already setup.
+```js
+const validateEnv = require('valid-env')
 
-## Dev Commands
+validateEnv([ 'DATABASE_URL', 'SERVICE_KEY', 'NUM_CARROTS' ])
 
-```bash
+// exit 1: Missing environment variables: SERVICE_KEY, NUM_CARROTS
+```
 
-# Build & publish the image (from node-9:alpine)
-# -> uses REGISTRY file & the npm version to tag image
-npm run push-image
+Check your node environment is set up just right and fail if variables aren't set.
 
-# Update version (builds & pushes a new docker image)
-npm version ... # --help
+Or if you want, place this in your **package.json**:
 
-# Lint the web & test directories
-npm run lint
-
-# Run the unit tests
-npm test
-
-# Generate coverage
-npm run coverage          # outputs to coverage/
-npm run coverage-summary  # outputs to terminal
-
-# Watch code with nodemon (restarts on file changes)
-npm run watch
-
+```json
+{
+  "scripts": {
+    "prestart": "validEnv DATABASE_URL SERVICE_KEY NUM_CARROTS"
+  }
+}
 ```
