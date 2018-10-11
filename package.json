@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Check environment variables are set or fail",
   "main": "src/index.js",
-  "bin": { "validEnv": "src/bin.js" },
+  "bin": {
+    "validEnv": "src/bin.js"
+  },
   "scripts": {
     "coverage": "jest --coverage",
     "lint": "eslint src test"
