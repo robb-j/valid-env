@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Check environment variables are set or fail",
   "main": "src/index.js",
+  "types": "types.d.ts",
   "bin": {
     "validEnv": "src/bin.js"
   },
@@ -12,6 +13,14 @@
   },
   "author": "robb-j",
   "license": "ISC",
+  "repository": "github:robb-j/valid-env",
+  "bugs": "https://github.com/robb-j/valid-env/issues",
+  "homepage": "https://github.com/robb-j/valid-env#readme",
+  "keywords": [
+    "validate",
+    "environment",
+    "check"
+  ],
   "dependencies": {},
   "devDependencies": {
     "ajv": "^6.5.4",
