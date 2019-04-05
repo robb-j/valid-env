@@ -14,12 +14,10 @@ I created this package because lots of my npm-based projects needed to check cer
 
 Its designed to be as light as possible so there are no dependancies and minimal code, I'm just interested in repurposing this same code quickly.
 
-I also like to make my code human-readable so the function names are longer but hopefully have more meaning to the reader.
-
 ## Usage
 
-There are three ways of using this package, it also provides
-[type definitions](/dist/index.d.ts) so you can easily use it in TypeScript.
+There are three ways of using this package,
+it also provides type definitions so you can easily use it in TypeScript.
 
 ### 1 - Exit the current process
 
