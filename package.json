@@ -1,6 +1,6 @@
 {
   "name": "valid-env",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "private": false,
   "description": "Check environment variables are set or fail",
   "main": "dist/index.js",
