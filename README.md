@@ -79,6 +79,10 @@ import { checkVariables } from 'valid-env'
 checkVariables(['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'MYSQL_URI'])
 ```
 
+## Future work
+
+- A method for asserting an object doesn't contain undefined, then return a object `T` with no undefined-s in it
+
 ---
 
 > This project was setup with [robb-j/ts-node-base](https://github.com/robb-j/ts-node-base)
