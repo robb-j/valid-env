@@ -98,7 +98,7 @@ const env = checkEnvObject({
   AWS_ACCESS_KEY_ID,
   AWS_SECRET_ACCESS_KEY,
   MYSQL_URI,
-  CORS_HOSTS
+  CORS_HOSTS,
 })
 ```
 
@@ -129,7 +129,7 @@ export function createEnv(env = process.env) {
 
   return checkEnvObject({
     ...pluck(env, 'APP_NAME', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'),
-    CORS_HOSTS
+    CORS_HOSTS,
   })
 }
 ```

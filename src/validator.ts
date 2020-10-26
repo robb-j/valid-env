@@ -13,7 +13,7 @@ export function checkVariables(keys = new Array<string>()) {
   //
   // See which enivornment variables are undefined
   //
-  const missing = keys.filter(key => process.env[key] === undefined)
+  const missing = keys.filter((key) => process.env[key] === undefined)
 
   //
   // If there are any, create an error with the missing variable names

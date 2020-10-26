@@ -18,7 +18,7 @@ describe('#pluck', () => {
       b: 2,
       c: 'geoff',
       d: true,
-      e: [42]
+      e: [42],
     }
 
     const result: any = pluck(input, 'b', 'c', 'e')
@@ -43,7 +43,7 @@ describe('#checkEnvObject', () => {
       age: 42,
       isCool: false,
       birthday: new Date(),
-      petNames: ['Fenton', 'Grumpy cat']
+      petNames: ['Fenton', 'Grumpy cat'],
     })
   })
 })
