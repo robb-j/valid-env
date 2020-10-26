@@ -37,7 +37,7 @@ validateEnv(['MYSQL_URI', 'SERVICE_KEY', 'NUM_CARROTS'])
 **in TypeScript**
 
 ```ts
-import validateEnv from 'valid-env'
+import { validateEnv } from 'valid-env'
 
 validateEnv(['MYSQL_URI', 'SERVICE_KEY', 'NUM_CARROTS'])
 
@@ -79,9 +79,64 @@ import { checkVariables } from 'valid-env'
 checkVariables(['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'MYSQL_URI'])
 ```
 
+### 4 - Validating an object
+
+You can use `#validateEnvObject` to check every value on an object is non-undefined
+and return a new object that is retyped without undefined.
+You can add more than just strings this way.
+It will throw an error if any value is set to undefined.
+
+**in JavaScript**
+
+```js
+const { checkEnvObject } = require('valid-env')
+
+const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, MYSQL_URI } = process.env
+const CORS_HOSTS = env.CORS_HOSTS?.split(',') ?? []
+
+const env = checkEnvObject({
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
+  MYSQL_URI,
+  CORS_HOSTS
+})
+```
+
+## Typed example
+
+Use `#validateEnvObject` and `#pluck` together to quickly destructure `process.env`,
+create a new type and assert it is non-undefined.
+
+Benefits:
+
+- Single source of truth
+- Assert out `undefined` values
+- Fail early for unset envrionment variables of any type
+- Optionally pass in an env object for testing
+- Less places to make mistakes
+- Export `Env` type for reuse in other places
+- Add custom non-string values in there
+
+**env.ts**
+
+```ts
+import { pluck, checkEnvObject } from 'valid-env'
+
+export type Env = ReturnType<typeof createEnv>
+
+export function createEnv(env = process.env) {
+  const CORS_HOSTS = env.CORS_HOSTS?.split(',') ?? []
+
+  return checkEnvObject({
+    ...pluck(env, 'APP_NAME', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'),
+    CORS_HOSTS
+  })
+}
+```
+
 ## Future work
 
-- A method for asserting an object doesn't contain undefined, then return a object `T` with no undefined-s in it
+- ???
 
 ---
 
